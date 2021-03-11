@@ -13,6 +13,7 @@ function App() {
 
   return (
     <div className="App">
+      {/* Passes state data to our forms through props */}
       <UserForm inputs={state} setInputs={setState} />
       <Results data={state} />
     </div>

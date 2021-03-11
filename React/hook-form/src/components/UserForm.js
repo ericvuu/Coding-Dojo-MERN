@@ -1,11 +1,14 @@
-import React, { useState } from  'react';
+import React from  'react';
 
 const UserForm = (props) => {
+
+    // destructuring dictionary from App.js
     const { inputs, setInputs } = props;
 
+    // on change will capture the event of the client keydown and set the particular state for key
     const onChange = (e) => {
         setInputs({
-            // bring in the entire collection of state
+            // brings in the entire collection of state
             // spreads dictionary out into key, value pairs to preserve values, so we do not accidentally overwrite other values
           ...inputs,
           [e.target.name]: e.target.value,
@@ -15,6 +18,7 @@ const UserForm = (props) => {
     return (
       <form>
         <div>
+          {/* htmlFor and name must match with key name in App.js State object */}
           <label htmlFor="firstName">First Name: </label>
           <input onChange={onChange} type="text" name="firstName" />
           <p>
@@ -34,7 +38,7 @@ const UserForm = (props) => {
         </div>
         <div>
           <label htmlFor="email">Email Address: </label>
-          <input onChange={onChange} type="text" name="email" />
+          <input onChange={onChange} type="email" name="email" />
           <p>
             {inputs.email.length > 0 && inputs.email.length < 5
               ? "Email must be at least 5 characters."
@@ -43,7 +47,7 @@ const UserForm = (props) => {
         </div>
         <div>
           <label htmlFor="password">Password: </label>
-          <input onChange={onChange} type="text" name="password" />
+          <input onChange={onChange} type="password" name="password" />
           <p>
             {inputs.password.length > 0 && inputs.password.length < 8
               ? "Password must be at least 8 characters."
@@ -52,7 +56,7 @@ const UserForm = (props) => {
         </div>
         <div>
           <label htmlFor="confirmPassword">Confirm Password: </label>
-          <input onChange={onChange} type="text" name="confirmPassword" />
+          <input onChange={onChange} type="password" name="confirmPassword" />
           <p>
             {inputs.confirmPassword.length > 0 &&
             inputs.confirmPassword.length < 8

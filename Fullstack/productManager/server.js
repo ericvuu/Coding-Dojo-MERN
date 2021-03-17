@@ -7,8 +7,9 @@ const app = express();
 require("./server/config/mongoose.config");
 
 // cors, json, and encoded must come before routes
+
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); // req.body will be undefined without this
 app.use(express.urlencoded({ extended: true }));
 
 // executing the code in the route file

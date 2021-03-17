@@ -1,10 +1,16 @@
 import './App.css';
-import ProductForm from './components/ProductForm';
+import { Router, Redirect } from "@reach/router";
+import Main from './views/Main';
+import ViewProduct from './views/ViewProduct'
 
 function App() {
   return (
     <div className="App">
-      <ProductForm/>
+      <Router>
+        <Main path="/products" />
+        <ViewProduct path="/products/:id" />
+        <Redirect from="/" to="/products" noThrow="true" />
+      </Router>
     </div>
   );
 }

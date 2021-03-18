@@ -1,16 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import { Link } from "@reach/router";
 import axios from 'axios';
+import DeleteButton from './DeleteButton'
 
-const ProductsList = ({ products, removeFromDom }) => {
+const ProductsList = (props) => {
 
-  const deleteProduct = (productId) => {
+  const [products, setProducts] = useState([]);
+
+  // const deleteProduct = (productId) => {
+  //   axios
+  //     .delete(`http://localhost:8000/products/${productId}/delete`)
+  //     .then((res) => {
+  //       removeFromDom(productId);
+  //     });
+  // };
+
+  useEffect(() => {
     axios
-      .delete(`http://localhost:8000/products/${productId}/delete`)
-      .then((res) => {
-        removeFromDom(productId);
-      });
-  };
+      .get("http://localhost:8000/products")
+      .then((res) => setProducts(res.data));
+  }, []);
+
+  const removeFromDom = productId => {
+      setProducts(products.filter(product => product._id != productId))
+  }
 
   return (
     <div className="row mt-3">
@@ -21,7 +34,7 @@ const ProductsList = ({ products, removeFromDom }) => {
           return (
             <p className="h5">
               <Link to={/products/ + product._id} key={idx}>{product.title}</Link>
-              <button onClick={(e) => { deleteProduct(product._id) }} className="btn btn-danger ml-5"> Delete</button>
+              <DeleteButton productId={product._id} successCallback={()=>removeFromDom(product._id)}/>
             </p>
           );
         })}

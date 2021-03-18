@@ -20,11 +20,32 @@ const Main = () => {
     setProducts(products.filter((product) => product._id != productId));
   };
 
+  const createProduct = product => {
+    axios
+      .post("http://localhost:8000/products/", product)
+      .then((res) => {
+        setProducts([...products, res.data]);
+      })
+      .catch((error) => console.log(error));
+  }
+
   return (
-    <div>
-      <ProductForm />
+    <div className="container-fluid">
+      <div className="row justify-content-center">
+        <div>
+          <h2>Product Manager</h2>
+          <ProductForm
+            onSubmitProp={createProduct}
+            initialTitle=""
+            initialPrice=""
+            initialDescription=""
+          />
+        </div>
+      </div>
       <hr />
-      {loaded && <ProductsList products={products} removeFromDom={removeFromDom}/>}
+      {loaded && (
+        <ProductsList products={products} removeFromDom={removeFromDom} />
+      )}
     </div>
   );
 };

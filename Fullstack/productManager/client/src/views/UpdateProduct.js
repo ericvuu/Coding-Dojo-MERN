@@ -1,39 +1,57 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { navigate } from "@reach/router";
+import ProductForm from "../components/ProductForm";
 
 const UpdateProduct = (props) => {
 
   const { id } = props;
+  const [loaded, setLoaded] = useState(false);
+  const [product, setProduct] = useState("");
 
-  const [title, setTitle] = useState("");
-  const [price, setPrice] = useState("");
-  const [description, setDescription] = useState("");
+  // useEffect(() => {
+  //   axios.get('http://localhost:8000/products/' + id)
+  //     .then(res => {
+  //             setTitle(res.data.title);
+  //             setPrice(res.data.price);
+  //             setDescription(res.data.description)
+  //           })
+  // }, [id])
 
   useEffect(() => {
     axios.get('http://localhost:8000/products/' + id)
       .then(res => {
-              setTitle(res.data.title);
-              setPrice(res.data.price);
-              setDescription(res.data.description)
-            })
+        setProduct(res.data)
+        setLoaded(true)
+      })
   }, [id])
 
-  const updateProduct = (e) => {
-    e.preventDefault();
+  // const updateProduct = (e) => {
+  //   e.preventDefault();
+  //   axios
+  //     .put(`http://localhost:8000/products/${id}/edit`, {
+  //       title,
+  //       price,
+  //       description
+  //     })
+  //     .then((res) => console.log(res));
+  // };
+
+  const updateProduct = (product) => {
     axios
-      .put(`http://localhost:8000/products/${id}/edit`, {
-        title,
-        price,
-        description
-      })
-      .then((res) => console.log(res));
+      .put(`http://localhost:8000/products/${id}/edit`, product)
+      .then((res) => console.log(res))
+      .then(() => navigate(`/products/`));
   };
 
   return (
     <div className="row mt-5">
       <div className="col-lg-2 mx-auto">
         <h2>Update a Product</h2>
-        <form className="mt-3" onSubmit={updateProduct}>
+
+        {loaded && (<ProductForm onSubmitProp={updateProduct} initialTitle={product.title} initialPrice={product.price} initialDescription={product.description}/>)}
+
+        {/* <form className="mt-3" onSubmit={updateProduct}>
           <p className="form-group">
             <label>Title</label>
             <br />
@@ -67,7 +85,7 @@ const UpdateProduct = (props) => {
           <p className="text-center">
             <button className="btn btn-primary">Update</button>
           </p>
-        </form>
+        </form> */}
       </div>
     </div>
   );

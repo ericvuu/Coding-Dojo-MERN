@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Link } from "@reach/router";
 
 const AuthorForm = (props) => {
 
   const {initialName, onSubmitProp} = props;
 
-  const [name, setName] = useState('');
+  const [name, setName] = useState(initialName);
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    onSubmitProp({name});
+    onSubmitProp({name})
   }
 
   return (

@@ -1,5 +1,4 @@
-import './App.css';
-import { Router, Redirect } from "@reach/router";
+import { Router} from "@reach/router";
 import Dashboard from './views/Dashboard';
 import NewAuthor from './views/NewAuthor';
 import { UpdateAuthor } from './views/UpdateAuthor';

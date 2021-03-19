@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
+const dbName = "authors"
 
 mongoose
-  .connect("mongodb://localhost/authors", {
+  .connect(`mongodb://localhost/${dbName}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
   })
-  .then(() => console.log("Established a connection to the database"))
+  .then(() => console.log(`Connected to ${dbName} datatbase`))
   .catch((err) =>
     console.log("Something went wrong when connecting to the database", err)
   );

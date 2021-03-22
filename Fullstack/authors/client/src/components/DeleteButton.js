@@ -7,7 +7,7 @@ const DeleteButton = (props) => {
 
   const deleteProduct = (e) => {
       axios
-        .delete(`http://localhost:8000/delete/${authorId}/`)
+        .delete(`http://localhost:8000/authors/${authorId}/`)
         .then((res) => {
         successCallback();
         });

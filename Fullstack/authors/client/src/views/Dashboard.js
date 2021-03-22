@@ -9,12 +9,12 @@ const Dashboard = () => {
 
   useEffect(() => {
 
-    axios.get("http://localhost:8000/").then((res) => setAuthors(res.data))
+    axios.get("http://localhost:8000/authors").then((res) => setAuthors(res.data))
 
   }, [])
 
   const removeFromDom = (authorId) => {
-     setAuthors(authors.filter((author) => author._id != authorId));
+     setAuthors(authors.filter((author) => author._id !== authorId));
    };
 
   return (
@@ -22,34 +22,53 @@ const Dashboard = () => {
       <h1>Favorite Authors</h1>
       <Link to="/new/">Add New Author</Link>
       <p>We have qoutes by: </p>
+
       <table className="table table-dark mt-3">
         <thead>
-          <th scope="col">Author</th>
-          <th scope="col">Actions Available</th>
+          <tr>
+            <th scope="col">Author</th>
+            <th scope="col">Actions Available</th>
+          </tr>
         </thead>
-        {authors.map((author, idx) => {
-          return (
-            <tr key={idx}>
-              <td>{author.name}</td>
+        <tbody>
+          {
 
-              <td>
-                <div className="d-inline-block">
-                <Link to={`/edit/${author._id}`} key={idx} className="btn btn-success">
-                  Edit
-                </Link>
-                </div>
+          authors.sort((a,b) => {
+                if(a.name < b.name) { return -1; }
+                if(a.name > b.name) { return 1; }
+                return 0;
+          })
+          .map((author, idx) => {
+            return (
+              <tr key={idx}>
+                <td>
+                  <Link to={`/${author._id}`} key={idx}>
+                    {author.name}
+                  </Link>
+                </td>
 
-                <div className="d-inline-block">
-                <DeleteButton
-                  authorId={author._id}
-                  successCallback={() => removeFromDom(author._id)}
-                />
-                </div>
-              </td>
+                <td>
+                  <div className="d-inline-block">
+                    <Link
+                      to={`/edit/${author._id}`}
+                      key={idx}
+                      className="btn btn-success"
+                    >
+                      Edit
+                    </Link>
+                  </div>
 
-            </tr>
-          );
-        })}
+                  <div className="d-inline-block">
+                    <DeleteButton
+                      authorId={author._id}
+                      successCallback={() => removeFromDom(author._id)}
+                    />
+                  </div>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </div>
   );

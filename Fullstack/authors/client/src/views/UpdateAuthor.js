@@ -3,7 +3,7 @@ import AuthorForm from "../components/AuthorForm";
 import axios from "axios";
 import { navigate, Link } from "@reach/router";
 
-export const UpdateAuthor = (props) => {
+const UpdateAuthor = (props) => {
 
   const { id } = props;
   const [errors, setErrors] = useState([]);
@@ -12,19 +12,20 @@ export const UpdateAuthor = (props) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/${id}`)
+      .get(`http://localhost:8000/authors/${id}`)
       .then((res) => {
         setAuthor(res.data);
         setLoaded(true);
       })
       .catch((error) => {
         console.log(error)
+        navigate("/error")
       });
   }, [id])
 
   const updateAuthor = (author) => {
     axios
-      .put(`http://localhost:8000/edit/${id}`, author)
+      .put(`http://localhost:8000/authors/${id}`, author)
       .then((res) => {
         navigate("/");
       })
@@ -40,7 +41,7 @@ export const UpdateAuthor = (props) => {
       });
   };
 
-  return author._id != null ? (
+  return (
     <div className="container text-center">
       <div className="container text-left">
         <Link to="/">Home</Link>
@@ -56,13 +57,7 @@ export const UpdateAuthor = (props) => {
         <AuthorForm onSubmitProp={updateAuthor} initialName={author.name} />
       )}
     </div>
-  ) : (
-    <div className="container text-center">
-      <p>
-        We're sorry, but we could not find the author you are looking for. Would
-        you like to add this author to our database?
-      </p>
-      <Link to="/new">Create Author</Link>
-    </div>
-  );
+  )
 }
+
+export default UpdateAuthor;

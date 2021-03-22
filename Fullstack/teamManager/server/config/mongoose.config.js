@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
-// const dbName = "authors"
+const dbName = "teamManagerDB";
 
-module.exports = (dbName) => {
 mongoose
   .connect(`mongodb://localhost/${dbName}`, {
     useNewUrlParser: true,
@@ -12,4 +11,3 @@ mongoose
   .catch((err) =>
     console.log("Something went wrong when connecting to the database", err)
   );
-}

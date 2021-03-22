@@ -1,18 +1,17 @@
-import React, {useState} from 'react'
-import AuthorForm from '../components/AuthorForm'
+import React, { useState } from "react";
+import PlayerForm from "../components/PlayerForm";
 import axios from "axios";
 import { navigate, Link } from "@reach/router";
 
-const NewAuthor = () => {
+const AddPlayer = () => {
 
   const [errors, setErrors] = useState([]);
 
-  const createAuthor = (author) => {
+  const createPlayer = (player) => {
     axios
-      .post("http://localhost:8000/authors", author)
+      .post("http://localhost:8000/players/addplayer", player)
       .then((res) => {
-        console.log(res);
-        navigate(`/${res.data._id}`);
+        navigate("/");
       })
       .catch((error) => {
         const errorResponse = error.response.data.errors;
@@ -28,14 +27,18 @@ const NewAuthor = () => {
   return (
     <div className="container text-center">
       <div className="container text-left">
-        <Link to="/">Home</Link>
+        <Link to="/players/list">List</Link>
       </div>
       <h1>Favorite Authors</h1>
       <h5>Add a new author:</h5>
-      {errors.map((error, index) =>( <p className="text-danger" key={index}>{error}</p>))}
-      <AuthorForm onSubmitProp={createAuthor} initialName="" />
+      {errors.map((error, index) => (
+        <p className="text-danger" key={index}>
+          {error}
+        </p>
+      ))}
+      <PlayerForm onSubmitProp={createPlayer} initialName="" initialPosition="" />
     </div>
   );
-}
+};
 
-export default NewAuthor
+export default AddPlayer;

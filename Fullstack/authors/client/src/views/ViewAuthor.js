@@ -17,6 +17,7 @@ const ViewAuthor = (props) => {
   return (
     <div className="container mt-5 text-center">
       <h3 className="display-3">{author.name}</h3>
+      <p>Number of Books: {author.number_of_books}</p>
       <div className="d-inline-flex mt-3">
         <Link to={`/edit/${author._id}`} className="btn btn-primary mr-1"> Update</Link>
         <DeleteButton authorId={author._id} successCallback={() => navigate('/')}/>

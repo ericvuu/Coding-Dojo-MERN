@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "@reach/router";
 
 const PlayerForm = (props) => {
 
-  const { initialName, initialPosition, onSubmitProp } = props;
+  const { initialName, onSubmitProp } = props;
 
   const [name, setName] = useState(initialName);
   const [position, setPosition] = useState(initialName);

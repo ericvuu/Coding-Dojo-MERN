@@ -7,6 +7,10 @@ const AuthorSchema = new mongoose.Schema(
       required: [true, "{PATH} is required"],
       minLength: [3, "{PATH} must be at least {MINLENGTH} characters"]
      },
+
+    number_of_books: {
+      type: Number,
+    },
   },
   { timestamps: true }
 );

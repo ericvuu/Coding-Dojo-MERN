@@ -18,7 +18,6 @@ const UpdateAuthor = (props) => {
         setLoaded(true);
       })
       .catch((error) => {
-        console.log(error)
         navigate("/error")
       });
   }, [id])

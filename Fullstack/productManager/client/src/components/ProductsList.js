@@ -7,14 +7,6 @@ const ProductsList = (props) => {
 
   const [products, setProducts] = useState([]);
 
-  // const deleteProduct = (productId) => {
-  //   axios
-  //     .delete(`http://localhost:8000/products/${productId}/delete`)
-  //     .then((res) => {
-  //       removeFromDom(productId);
-  //     });
-  // };
-
   useEffect(() => {
     axios
       .get("http://localhost:8000/products")
@@ -32,9 +24,12 @@ const ProductsList = (props) => {
         {products.map((product, idx) => {
 
           return (
-            <p className="h5">
-              <Link to={/products/ + product._id} key={idx}>{product.title}</Link>
-              <DeleteButton productId={product._id} successCallback={()=>removeFromDom(product._id)}/>
+            <p className="h5" key={idx}>
+              <Link to={/products/ + product._id}>{product.title}</Link>
+              <DeleteButton
+                productId={product._id}
+                successCallback={() => removeFromDom(product._id)}
+              />
             </p>
           );
         })}

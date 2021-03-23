@@ -49,20 +49,11 @@ const Dashboard = () => {
 
                 <td>
                   <div className="d-inline-block">
-                    <Link
-                      to={`/edit/${author._id}`}
-                      key={idx}
-                      className="btn btn-success"
-                    >
-                      Edit
-                    </Link>
+                    <Link to={`/edit/${author._id}`} key={idx} className="btn btn-success"> Edit</Link>
                   </div>
 
                   <div className="d-inline-block">
-                    <DeleteButton
-                      authorId={author._id}
-                      successCallback={() => removeFromDom(author._id)}
-                    />
+                    <DeleteButton authorId={author._id} successCallback={() => removeFromDom(author._id)}/>
                   </div>
                 </td>
               </tr>

@@ -9,7 +9,7 @@ const AddPlayer = () => {
 
   const createPlayer = (player) => {
     axios
-      .post("http://localhost:8000/players/addplayer", player)
+      .post("http://localhost:8000/players", player)
       .then((res) => {
         navigate("/");
       })

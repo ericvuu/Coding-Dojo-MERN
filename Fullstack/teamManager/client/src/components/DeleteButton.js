@@ -7,7 +7,7 @@ function DeleteButton(props) {
 
   const deletePlayer = e => {
       axios
-        .delete(`http://localhost:8000/players/${playerId}/delete`)
+        .delete(`http://localhost:8000/players/${playerId}`)
         .then((res) => {
           successCallback();
         })

@@ -33,7 +33,7 @@ const NewAuthor = () => {
       <h1>Favorite Authors</h1>
       <h5>Add a new author:</h5>
       {errors.map((error, index) =>( <p className="text-danger" key={index}>{error}</p>))}
-      <AuthorForm onSubmitProp={createAuthor} initialName="" />
+      <AuthorForm onSubmitProp={createAuthor} initialName=""/>
     </div>
   );
 }

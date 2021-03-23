@@ -15,12 +15,6 @@ const ViewProduct = (props) => {
       .catch((err) => console.log(err));
   }, [props.id]);
 
-  // const deleteProduct = (productId) => {
-  //   axios
-  //     .delete(`http://localhost:8000/products/${productId}/delete`)
-  //     .then(() => navigate(`/products/`));
-  // }
-
   return (
     <div className="container mt-5 text-center">
       <h3>{product.title}</h3>

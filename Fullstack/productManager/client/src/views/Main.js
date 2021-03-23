@@ -23,10 +23,10 @@ const Main = () => {
   const createProduct = product => {
     axios
       .post("http://localhost:8000/products/", product)
-      .then((res) => {
-        setProducts([...products, res.data]);
-      })
-      .catch((error) => console.log(error));
+      .then(
+        setProducts(product => [...products, product]),
+        setLoaded(false)
+      )
   }
 
   return (

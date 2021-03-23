@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 
 const ProductForm = (props) => {
 
@@ -9,25 +8,12 @@ const ProductForm = (props) => {
   const [price, setPrice] = useState(initialPrice);
   const [description, setDescription] = useState(initialDescription);
 
-  // const onSubmitHandler = (e) => {
-  //   e.preventDefault();
-  //   axios.post('http://localhost:8000/products/', {
-  //     title,
-  //     price,
-  //     description
-  //   })
-  //   .then((result) => {
-  //     setTitle("");
-  //     setPrice("");
-  //     setDescription("");
-  //   })
-  //   .catch((error) => console.log(error));
-
-  // }
-
   const onSubmitHandler = (e) => {
     e.preventDefault();
     onSubmitProp({title, price, description});
+    setTitle("")
+    setPrice("")
+    setDescription("")
   }
 
   return (

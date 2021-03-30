@@ -1,15 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Fade from "@material-ui/core/Fade";
 import Grid from "@material-ui/core/Grid";
 import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
+import {Link} from "@reach/router";
 
 const NavBar = () => {
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+
+  const linkStyle = {
+    textDecoration: "none",
+    color: "black",
+  };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -30,7 +36,7 @@ const NavBar = () => {
         <div>
           <h1>
             <img
-              src={`${process.env.PUBLIC_URL}/logo.png`}
+              src={`${process.env.PUBLIC_URL}/images/logo.png`}
               width="100px"
               alt="logo"
             />
@@ -59,6 +65,7 @@ const NavBar = () => {
             }}
           >
             <MenuItem
+              component={Link} to="/clients"
               onClick={handleClose}
               onMouseEnter={(e) => (e.target.style.backgroundColor = "#ffaaee")}
               onMouseLeave={(e) => (e.target.style.backgroundColor = "#ffffff")}
@@ -66,6 +73,7 @@ const NavBar = () => {
               Clients
             </MenuItem>
             <MenuItem
+              component={Link} to="/work"
               onClick={handleClose}
               onMouseEnter={(e) => (e.target.style.backgroundColor = "#ffaaee")}
               onMouseLeave={(e) => (e.target.style.backgroundColor = "#ffffff")}
@@ -73,6 +81,7 @@ const NavBar = () => {
               Work
             </MenuItem>
             <MenuItem
+              component={Link} to="/about"
               onClick={handleClose}
               onMouseEnter={(e) => (e.target.style.backgroundColor = "#ffaaee")}
               onMouseLeave={(e) => (e.target.style.backgroundColor = "#ffffff")}

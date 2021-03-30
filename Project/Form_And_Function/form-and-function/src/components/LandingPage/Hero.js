@@ -7,12 +7,10 @@ import "@fontsource/roboto";
 
 const Hero = () => {
 
-  const props = useSpring({
+  const fade = useSpring({
     config: { duration: 5000 },
-    to: async (next, cancel) => {
-      await next({ opacity: 1, color: "black" });
-    },
     from: { opacity: 0, color: "#ffaaee" },
+    to: { opacity: 1, color: "black" },
   });
 
   const coloredText = {
@@ -22,11 +20,9 @@ const Hero = () => {
   return (
     <Grid container style={{ height: "70vh" }} alignItems="center" justify="center">
       <Box width="75%" paddingY={3}>
-        <animated.div style={props}>
+        <animated.div style={fade}>
           <Typography variant="h3">
-            Form & Function is a interior design agency in{" "}
-            <span style={coloredText}>Los Angeles</span> and{" "}
-            <span style={coloredText}>NYC</span>.
+            Form & Function is a interior design agency in <span style={coloredText}>Los Angeles</span> and <span style={coloredText}>NYC</span>.
           </Typography>
         </animated.div>
       </Box>

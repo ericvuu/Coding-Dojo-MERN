@@ -2,6 +2,7 @@ import React from 'react'
 import { Typography } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import Image from "material-ui-image";
+import { Paper } from "@material-ui/core";
 
 const StylesInfo = () => {
   return (
@@ -9,8 +10,8 @@ const StylesInfo = () => {
       <Typography variant="h5" align="center">
         What interior design style are you?
       </Typography>
-      <Grid container direction="column">
-        <Grid item lg={12} container>
+      <Grid container direction="column" spacing={2}>
+        <Grid item lg={12} container spacing={2}>
           <Grid item lg={6}>
             <h2>Traditional</h2>
             <p>
@@ -22,18 +23,23 @@ const StylesInfo = () => {
               incorporating pieces with structure and symmetry.
             </p>
           </Grid>
+
           <Grid item lg={6}>
-            <Image
-              src={`${process.env.PUBLIC_URL}/images/traditional-NeONBRAND.jpg`}
-            />
+            <Paper>
+              <Image
+                src={`${process.env.PUBLIC_URL}/images/traditional-NeONBRAND.jpg`}
+              />
+            </Paper>
           </Grid>
         </Grid>
 
-        <Grid item lg={12} container>
+        <Grid item lg={12} container spacing={2}>
           <Grid item lg={6}>
-            <Image
-              src={`${process.env.PUBLIC_URL}/images/boho-AlyssaStrohmann.jpg`}
-            />
+            <Paper>
+              <Image
+                src={`${process.env.PUBLIC_URL}/images/boho-AlyssaStrohmann.jpg`}
+              />
+            </Paper>
           </Grid>
           <Grid item lg={6}>
             <h2>BOHO</h2>
@@ -49,7 +55,7 @@ const StylesInfo = () => {
           </Grid>
         </Grid>
 
-        <Grid item lg={12} container>
+        <Grid item lg={12} container spacing={2}>
           <Grid item lg={6}>
             <h2>Organic Modern</h2>
             <p>
@@ -61,18 +67,23 @@ const StylesInfo = () => {
               iconic lighting done in black, brass, and chrome.
             </p>
           </Grid>
+
           <Grid item lg={6}>
-            <Image
-              src={`${process.env.PUBLIC_URL}/images/organic-modern-AveryKlein.jpg`}
-            />
+            <Paper>
+              <Image
+                src={`${process.env.PUBLIC_URL}/images/organic-modern-AveryKlein.jpg`}
+              />
+            </Paper>
           </Grid>
         </Grid>
 
-        <Grid item lg={12} container>
+        <Grid item lg={12} container spacing={2}>
           <Grid item lg={6}>
-            <Image
-              src={`${process.env.PUBLIC_URL}/images/eclectic-TaylorHeery.jpg`}
-            />
+            <Paper>
+              <Image
+                src={`${process.env.PUBLIC_URL}/images/eclectic-TaylorHeery.jpg`}
+              />
+            </Paper>
           </Grid>
           <Grid item lg={6}>
             <h2>Eclectic</h2>
@@ -87,7 +98,7 @@ const StylesInfo = () => {
           </Grid>
         </Grid>
 
-        <Grid item lg={12} container>
+        <Grid item lg={12} container spacing={2}>
           <Grid item lg={6}>
             <h2>Modern</h2>
             <p>
@@ -100,17 +111,21 @@ const StylesInfo = () => {
             </p>
           </Grid>
           <Grid item lg={6}>
-            <Image
-              src={`${process.env.PUBLIC_URL}/images/modern-NaomiHebert.jpg`}
-            />
+            <Paper>
+              <Image
+                src={`${process.env.PUBLIC_URL}/images/modern-NaomiHebert.jpg`}
+              />
+            </Paper>
           </Grid>
         </Grid>
 
-        <Grid item lg={12} container>
+        <Grid item lg={12} container spacing={2}>
           <Grid item lg={6}>
-            <Image
-              src={`${process.env.PUBLIC_URL}/images/modern-farmhouse-CollovHomeDesign.jpg`}
-            />
+            <Paper>
+              <Image
+                src={`${process.env.PUBLIC_URL}/images/modern-farmhouse-CollovHomeDesign.jpg`}
+              />
+            </Paper>
           </Grid>
           <Grid item lg={6}>
             <h2>Modern Farmhouse</h2>
@@ -127,7 +142,7 @@ const StylesInfo = () => {
           </Grid>
         </Grid>
 
-        <Grid item lg={12} container>
+        <Grid item lg={12} container spacing={2}>
           <Grid item lg={6}>
             <h2>Glam</h2>
             <p>
@@ -141,15 +156,19 @@ const StylesInfo = () => {
             </p>
           </Grid>
           <Grid item lg={6}>
-            <Image src={`${process.env.PUBLIC_URL}/images/glam.jpg`} />
+            <Paper>
+              <Image src={`${process.env.PUBLIC_URL}/images/glam.jpg`} />
+            </Paper>
           </Grid>
         </Grid>
 
-        <Grid item lg={12} container>
+        <Grid item lg={12} container spacing={2}>
           <Grid item lg={6}>
-            <Image
-              src={`${process.env.PUBLIC_URL}/images/industrial-EvelynSemenyuk.jpg`}
-            />
+            <Paper>
+              <Image
+                src={`${process.env.PUBLIC_URL}/images/industrial-EvelynSemenyuk.jpg`}
+              />
+            </Paper>
           </Grid>
           <Grid item lg={6}>
             <h2>Industrial</h2>
@@ -164,7 +183,7 @@ const StylesInfo = () => {
           </Grid>
         </Grid>
 
-        <Grid item lg={12} container>
+        <Grid item lg={12} container spacing={2}>
           <Grid item lg={6}>
             <h2>Coastal</h2>
             <p>
@@ -177,17 +196,21 @@ const StylesInfo = () => {
             </p>
           </Grid>
           <Grid item lg={6}>
-            <Image
-              src={`${process.env.PUBLIC_URL}/images/Coastal-JasonBriscoe.jpg`}
-            />
+            <Paper>
+              <Image
+                src={`${process.env.PUBLIC_URL}/images/Coastal-JasonBriscoe.jpg`}
+              />
+            </Paper>
           </Grid>
         </Grid>
 
-        <Grid item lg={12} container>
+        <Grid item lg={12} container spacing={2}>
           <Grid item lg={6}>
-            <Image
-              src={`${process.env.PUBLIC_URL}/images/mid-century-modern-ArtyomKabajev.jpg`}
-            />
+            <Paper>
+              <Image
+                src={`${process.env.PUBLIC_URL}/images/mid-century-modern-ArtyomKabajev.jpg`}
+              />
+            </Paper>
           </Grid>
           <Grid item lg={6}>
             <h2>Mid-Century Modern</h2>
@@ -202,7 +225,7 @@ const StylesInfo = () => {
           </Grid>
         </Grid>
 
-        <Grid item lg={12} container>
+        <Grid item lg={12} container spacing={2}>
           <Grid item lg={6}>
             <h2>Minimalist</h2>
             <p>
@@ -215,17 +238,21 @@ const StylesInfo = () => {
             </p>
           </Grid>
           <Grid item lg={6}>
-            <Image
-              src={`${process.env.PUBLIC_URL}/images/minimalist-Jean-PhilippeDelberghe.jpg`}
-            />
+            <Paper>
+              <Image
+                src={`${process.env.PUBLIC_URL}/images/minimalist-Jean-PhilippeDelberghe.jpg`}
+              />
+            </Paper>
           </Grid>
         </Grid>
 
-        <Grid item lg={12} container>
+        <Grid item lg={12} container spacing={2}>
           <Grid item lg={6}>
-            <Image
-              src={`${process.env.PUBLIC_URL}/images/scandinavian-SonnieHiles.jpg`}
-            />
+            <Paper>
+              <Image
+                src={`${process.env.PUBLIC_URL}/images/scandinavian-SonnieHiles.jpg`}
+              />
+            </Paper>
           </Grid>
           <Grid item lg={6}>
             <h2>Scandinavian</h2>
